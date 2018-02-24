@@ -50,9 +50,23 @@ percentage = df_above_50k.groupby('workclass').workclass.count()
 percentage = percentage.sort_values(ascending = False)
 total = sum(percentage.values)
 percentage = percentage/total
+print(percentage)
 ax = percentage.plot(kind = 'bar', color = 'r')
 ax.set_ylabel('Percentage')
 plt.show()
+
+
+# Hypothesis 3: Educated People Tend to Earn More
+
+educated = df_above_50k.groupby('education').education.count()
+educated = educated.sort_values(ascending = False)
+total = sum(educated.values)
+percentage_educated = educated/total
+ax = percentage_educated.plot(kind = 'bar', color = 'b')
+ax.set_ylabel("Percentage")
+plt.show()
+
+
 
 
 
