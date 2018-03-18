@@ -88,6 +88,17 @@ plt.ylabel('Percentage')
 plt.xlabel('Race')
 plt.show()
 
+# Hypothesis 6: Income is based upon different of Occupations
+
+occupations = df_above_50k.groupby('workclass').workclass.count()
+occupations = occupations.sort_values(ascending = False)
+total = sum(occupations.values)
+percentage_occupation = occupations/total
+percentage_occupation.plot(kind = 'bar', color = 'r')
+plt.ylabel('Percentage')
+plt.xlabel("Occupations")
+
+
 
 
 
