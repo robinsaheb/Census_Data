@@ -77,6 +77,17 @@ plt.ylabel('Percentage')
 plt.xlabel('Marital Status')
 plt.show()
 
+# Hypothesis 5: There is a bias based on on race.
+
+race = df_above_50k.groupby('race').race.count()
+race = race.sort_values(ascending = False)
+total = sum(race.values)
+percentage_race = race/total
+percentage_race.plot(kind = 'bar', color = 'b')
+plt.ylabel('Percentage')
+plt.xlabel('Race')
+plt.show()
+
 
 
 
