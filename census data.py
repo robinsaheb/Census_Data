@@ -66,6 +66,19 @@ ax = percentage_educated.plot(kind = 'bar', color = 'b')
 ax.set_ylabel("Percentage")
 plt.show()
 
+# Hypothesis 4: Married People Tend to Earn More
+
+married = df_above_50k.groupby('marital_status').marital_status.count()
+married = married.sort_values(ascending = False)
+total = sum(married.values)
+percentage_married = married/total
+percentage_married.plot(kind = 'bar', color = 'r')
+plt.ylabel('Percentage')
+plt.xlabel('Marital Status')
+plt.show()
+
+
+
 
 
 
