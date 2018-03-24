@@ -97,8 +97,34 @@ percentage_occupation = occupations/total
 percentage_occupation.plot(kind = 'bar', color = 'r')
 plt.ylabel('Percentage')
 plt.xlabel("Occupations")
+plt.show()
 
+# Hypothesis 7: Men tend to earn more
 
+gender_earning = df_above_50k.groupby('gender').gender.count()
+gender_earning = gender_earning.sort_values(ascending = False)
+total = sum(gender_earning)
+percentage_gender = gender_earning/total
+percentage_gender.plot(kind = 'bar', color = 'b')
+plt.ylabel("Percentage")
+plt.xlabel("Gender")
+plt.show()
+
+# Hypothesis 8: People who give more hour tend to earn more
+
+hour = df_above_50k.groupby('hours_per_week').hours_per_week.count()
+print(hour)
+ranges = [0,10,20,30,40,50,60,70,80,90,100]
+hour1 = hour.groupby(pd.cut(hour, ranges)).count()
+#print(hour1)
+hour1 = hour1.sort_values(ascending = False)
+total = sum(hour1)
+percentage_hour1 = hour1/total
+print(percentage_hour1)
+percentage_hour1.plot(kind = 'bar', color = 'g')
+plt.ylabel("Percentage")
+plt.xlabel("Hour Per Week")
+plt.show()
 
 
 
