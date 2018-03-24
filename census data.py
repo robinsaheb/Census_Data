@@ -112,19 +112,16 @@ plt.show()
 
 # Hypothesis 8: People who give more hour tend to earn more
 
+# People earning more than 50k
 hour = df_above_50k.groupby('hours_per_week').hours_per_week.count()
-print(hour)
-ranges = [0,10,20,30,40,50,60,70,80,90,100]
-hour1 = hour.groupby(pd.cut(hour, ranges)).count()
-#print(hour1)
-hour1 = hour1.sort_values(ascending = False)
-total = sum(hour1)
-percentage_hour1 = hour1/total
-print(percentage_hour1)
-percentage_hour1.plot(kind = 'bar', color = 'g')
+hist_above_50 = plt.hist(df_above_50k.hours_per_week.values,
+                         10, facecolor='green',alpha=0.5)
 plt.ylabel("Percentage")
 plt.xlabel("Hour Per Week")
 plt.show()
+
+# People earning less than 50k
+
 
 
 
