@@ -116,13 +116,16 @@ plt.show()
 hour = df_above_50k.groupby('hours_per_week').hours_per_week.count()
 hist_above_50 = plt.hist(df_above_50k.hours_per_week.values,
                          10, facecolor='green',alpha=0.5)
-plt.ylabel("Percentage")
+plt.ylabel("Number Of People")
 plt.xlabel("Hour Per Week")
 plt.show()
 
 # People earning less than 50k
-
-
+hour1 = df_below_50k.groupby(pd.cut(df_below_50k['hours_per_week'], np.arange(0,100,10))).hours_per_week.count()
+hour1.plot(kind = 'bar', color = 'g')
+plt.ylabel("Number of People")
+plt.xlabel("Hours Per Week")
+plt.show()
 
 
 
